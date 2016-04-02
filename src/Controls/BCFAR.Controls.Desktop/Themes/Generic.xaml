@@ -1,0 +1,176 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:BCFAR.Controls"
+    xmlns:esri="http://schemas.esri.com/arcgis/runtime/2013"
+    >
+
+
+    <!-- 
+    =====================
+    OverviewMap
+    =====================
+    -->
+    <Style TargetType="local:OverviewMap">
+        <Setter Property="Background" Value="Gray" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="300"></Setter>
+        <Setter Property="Height" Value="200"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:OverviewMap">
+                    <Grid x:Name="RootGrid" 
+                          Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                          Background="White">
+                        <esri:MapView x:Name="OverviewMapView" Margin="10">
+                            <esri:MapView.GraphicsOverlays>
+                                <esri:GraphicsOverlay>
+                                    <esri:GraphicsOverlay.Renderer>
+                                        <esri:SimpleRenderer>
+                                            <esri:SimpleFillSymbol Color="#7FFF0000">
+                                                <esri:SimpleFillSymbol.Outline>
+                                                    <esri:SimpleLineSymbol Color="Black"></esri:SimpleLineSymbol>
+                                                </esri:SimpleFillSymbol.Outline>
+                                            </esri:SimpleFillSymbol>
+                                        </esri:SimpleRenderer>
+                                    </esri:GraphicsOverlay.Renderer>
+                                </esri:GraphicsOverlay>
+                            </esri:MapView.GraphicsOverlays>
+                        </esri:MapView>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- 
+    =====================
+    Zoom
+    =====================
+    -->
+    <Style TargetType="local:Zoom">
+        <Setter Property="Background" Value="Gray" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Zoom">
+                    <Grid x:Name="RootGrid" 
+							Background="Transparent" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Button x:Name="ZoomInButton" Margin="5" IsEnabled="False">
+                                <Grid Background="White" Height="48" Width="48">
+                                    <Rectangle Fill="Black" Height="2" Margin="8,23,10,0" Stroke="Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                        <Rectangle.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform Angle="90"/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                    <Rectangle Fill="Black" Height="2" Margin="8,23,10,0" Stroke="Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                    </Rectangle>
+                                </Grid>
+                            </Button>
+                            <Button x:Name="ZoomOutButton" Margin="5" Grid.Row="1" IsEnabled="False">
+                                <Grid Background="White" Height="48" Width="48">
+                                    <Rectangle Fill="Black" Height="2" Margin="8,23,10,0" Stroke="Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                    </Rectangle>
+                                </Grid>
+                            </Button>
+                        </Grid>
+                    </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- 
+    =====================
+    Compass
+    =====================
+    -->
+    <Style TargetType="local:Compass">
+        <Setter Property="Background" Value="Gray" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Compass">
+                    <Grid x:Name="RootGrid" 
+                          Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                          Background="Transparent">
+                        <Ellipse Width="80" Height="80"
+                                      Stroke="{TemplateBinding BorderBrush}"
+                                      Fill="{TemplateBinding Background}"
+                                      StrokeThickness="{TemplateBinding BorderThickness}">
+                        </Ellipse>
+                        <Canvas RenderTransformOrigin="0.5,0.5" Height="80" Width="80">
+                            <Canvas.RenderTransform>
+                                <RotateTransform x:Name="CompassRotateTransform" />
+                            </Canvas.RenderTransform>
+                            <Path Fill="red" Stroke="Red" Data="M25,40 L40,5 L55,40 z" Height="37.5" Canvas.Left="25" Stretch="Fill" Canvas.Top="2.5" UseLayoutRounding="False" Width="30"/>
+                            <Path Fill="White" Stroke="White" Data="M25,40 L40,5 L55,40 z" Height="37.5" Canvas.Left="25" Stretch="Fill" Canvas.Top="40" UseLayoutRounding="False" Width="30" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleY="-1"/>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Canvas>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!-- 
+    =====================
+    HighlightOverlay
+    =====================
+    -->
+    
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="TopToCenterColor">
+        <GradientStop Color="#FF0019F9" Offset="1"/>
+        <GradientStop Color="#000032FF"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" x:Key="BottomToCenterColor">
+        <GradientStop Color="#FF0019F9" Offset="1"/>
+        <GradientStop Color="#000032FF"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0" x:Key="LeftToCenterColor">
+        <GradientStop Color="#FF0019F9" Offset="1"/>
+        <GradientStop Color="#000032FF" Offset="0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0,0" StartPoint="1,0" x:Key="RightToCenterColor">
+        <GradientStop Color="#FF0019F9" Offset="1"/>
+        <GradientStop Color="#000032FF" Offset="0"/>
+    </LinearGradientBrush>
+
+    <Style TargetType="local:HighlightOverlay">
+        <Setter Property="Background" Value="Gray" />
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="RightToCenterLineFill" Value="{StaticResource RightToCenterColor}"></Setter>
+        <Setter Property="LeftToCenterLineFill" Value="{StaticResource LeftToCenterColor}"></Setter>
+        <Setter Property="TopToCenterLineFill" Value="{StaticResource TopToCenterColor}"></Setter>
+        <Setter Property="BottomToCenterLineFill" Value="{StaticResource BottomToCenterColor}"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:HighlightOverlay">
+                    <Grid x:Name="RootGrid" 
+                          VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                          IsHitTestVisible="False"
+                          Background="Transparent">
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>
