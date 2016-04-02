@@ -7,6 +7,13 @@ This repository and the controls were used in a **User Presentation** in **Esri'
 
 ![Screenshot](Screenshot.PNG)
 
+## Content
+
+* Overview control : shows overview what area is visible in the main MapView
+* Compass : shows direction where the north is. Click it to reset rotation.
+* Zoom : Zoom in and zoom out buttons
+* Highlight animation : Animates highlighting to the selected feature
+
 ## Requirements
 
 Supported system configurations for: 
