@@ -1,5 +1,5 @@
 #Building Controls for ArcGIS Runtime for .NET
-The ArcGIS Runtime SDK for .NET includes source for Windows Desktop (WPF), Windows Store and Windows Phone APIs that you can use to build mapping and GIS applications. This repository contains examples how to build custom controls using the SDK. 
+The ArcGIS Runtime SDK for .NET includes API for Windows Desktop (WPF), Windows Store and Windows Phone APIs that you can use to build mapping and GIS applications. This repository contains examples how to build custom controls using the APIs. 
 
 The contents of the repository *is not* production ready code but instead shows different ways how you can build your own controls. Another good location to find more information how to build controls for the SDK is the official [Toolkit](https://github.com/Esri/arcgis-toolkit-dotnet) repository.
 
