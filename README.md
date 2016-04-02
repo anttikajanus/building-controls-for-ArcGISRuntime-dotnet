@@ -3,7 +3,7 @@ The ArcGIS Runtime SDK for .NET includes source for Windows Desktop (WPF), Windo
 
 The contents of the repository *is not* production ready code but instead shows different ways how you can build your own controls. Another good location to find more information how to build controls for the SDK is the official [Toolkit](https://github.com/Esri/arcgis-toolkit-dotnet) repository.
 
-This repository and the controls were used in a **User Presentation** in **Esri's Developer Summit 2016** in Palm Springs as a material.
+This repository and the controls were used in a **Demo Theatre Presentation** in **Esri's Developer Summit 2016** in Palm Springs.
 
 ![Screenshot](Screenshot.PNG)
 
