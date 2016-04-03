@@ -40,10 +40,6 @@
 						Value="{Binding Rotation, ElementName=MyMapView, Mode=TwoWay}"
                         TickPlacement="BottomRight" TickFrequency="5"
                         Minimum="0" Maximum="360" />
-
-
-                <ComboBox x:Name="Points"></ComboBox>
-                <Button Content="Highlight" Command="{Binding ElementName=highlightOverlay, Path=HighlightCommand}" CommandParameter="{Binding ElementName=Points, Path=SelectedItem}" />
             </StackPanel>
         </Border>
 
