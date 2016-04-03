@@ -26,7 +26,7 @@ Used SDK version is 10.2.7.
 ## Resources
 
 * [ArcGIS Runtime SDK for .NET](http://esriurl/dotnetsdk)
-* [Toolkit for ArcGIS Runtime sDK for .NET](https://github.com/Esri/arcgis-toolkit-dotnet)
+* [Toolkit for ArcGIS Runtime SDK for .NET](https://github.com/Esri/arcgis-toolkit-dotnet)
 
 ## Contributing
 
